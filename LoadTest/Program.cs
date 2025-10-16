@@ -1,4 +1,4 @@
-﻿using System.Net.Http.Json;
+using System.Net.Http.Json;
 using System.Threading.Channels;
 
 // TODO: код почти полностью написан GPT, я почти не радактировал его.
@@ -90,11 +90,11 @@ class Program
         var elapsed = DateTime.UtcNow - startTime;
 
         var countNew = await GetCount();
-        Console.WriteLine($"Send: {sent:N0}");
+        Console.WriteLine($"Send http: {sent:N0}");
         Console.WriteLine($"Error: {errors:N0}");
         Console.WriteLine($"Time: {elapsed.TotalSeconds:F1} sec");
         Console.WriteLine($"Speed: {sent / elapsed.TotalSeconds:F0} req/sec");
-        Console.WriteLine($"Number of new records added to DB: {countNew}");
+        Console.WriteLine($"Number of new records added to DB: {countNew:N0}");
     }
     
     static async Task ClearDb()

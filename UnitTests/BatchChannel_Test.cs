@@ -3,7 +3,7 @@
 namespace UnitTests;
 
 // TODO: в реал проекте я бы еще потестировал что _batchSize и _maxDelay всегда срабатывают по отдельности.
-public class _batchChannelTests
+public class BatchChannelTests
 {
     /// <summary>
     /// Тест на многопоточку, что все данные приходят.

@@ -1,4 +1,4 @@
-﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc;
 using UserIPTracker.Models;
 using UserIPTracker.Services;
 
@@ -22,7 +22,7 @@ public class ConnectionsController : ControllerBase
     public async Task<ActionResult<List<long>>> FindUsersByIp([FromQuery] string ipPart)
     {
         if (string.IsNullOrWhiteSpace(ipPart))
-            return BadRequest("ipPart не может быть пустым");
+            return BadRequest("ipPart cannot be empty");
         
         var userIds = await _connectionsRepository.FindUsersByIpPartAsync(ipPart);
 
@@ -53,7 +53,7 @@ public class ConnectionsController : ControllerBase
     public async Task<ActionResult<object>> GetLastConnectionByIp([FromQuery] string ip)
     {
         if (string.IsNullOrWhiteSpace(ip))
-            return BadRequest("ip не может быть пустым");
+            return BadRequest("ip cannot be empty");
 
         var (time, userId) = await _connectionsRepository.GetLastConnectionByIpAsync(ip);
         if (time is null && userId is null)
